@@ -1,0 +1,59 @@
+body {
+	background: rgb(187,187,187) url(../images/background.jpg) repeat-y;
+	background-size: 260px 1px;
+}
+.storage-info {
+	position: relative;
+	height: 80px;
+	text-align: center;
+	color: rgb(0,89,129);
+	font-weight: normal;
+	font-family: "黑体";
+}
+.storage-info > div {
+	display: inline-block;
+	padding-top: 25px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.storage-info span {
+	padding: 2px 5px;
+	border-radius: 4px;
+	font-size: 12px;
+	color: white;
+	vertical-align: 2px;
+}
+.storage-info .high-temp { background: rgb(244, 32, 23); }
+.storage-info .low-temp { background: rgb(33, 65, 255); }
+.storage-info .average-temp { background: rgb(0, 166, 15); }
+
+.storage-info-more {
+	position: absolute;
+	width: calc(100% - 280px);
+	bottom: 0;
+	padding: 10px;
+	color: rgb(0,89,129);
+	font-family: "黑体";
+	text-align: center;
+}
+.storage-info-more .num2 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.storage-info-more .num1 div {
+	display: inline-block;
+}
+.storage-info-more .num1 div span {
+	font-size: 12px;
+	border-radius: 4px;
+	padding: 2px 5px;
+	vertical-align: 2px;
+	color: white;
+	background: rgb(244, 32, 23);
+}
+
+canvas {
+	float: left;
+	margin-top: -80px;
+}

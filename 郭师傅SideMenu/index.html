@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html encoding="zh-CH">
+<head>
+	<meta charset="utf-8">
+	<title>商泰金鸿ERP系统</title>
+	<script src="jquery-2.2.0.min.js"></script>
+	<style>
+		body {
+			position: relative;
+			height: 100%;
+			min-width: 950px;
+			margin: 0;
+			background: url(bg.jpg) repeat-y white;
+			background-size: 300px 1px;
+			font-family: "微软雅黑";
+		}
+
+		.header {
+			color: white;
+			line-height: 70px;
+			background-color: #21252E;
+		}
+		.header .logo {
+			font-weight: bold;
+			float: left;
+			width: 300px;
+			font-size: 1.6em;
+			text-align: center;
+			font-style: italic;
+		}
+		.header .company {
+			margin-left: 330px;
+			font-size: 1.6em;
+			letter-spacing: 10px;
+			font-family: "宋体";
+		}
+		.header .user-control {
+			width: 200px;
+			float: right;
+			text-align: center;
+		}
+		.header .user-control img {
+			cursor: pointer;
+			margin-top: -4px;
+			vertical-align: middle;
+		}
+		.header .user-control span { padding: 0 5px; }
+
+		.side-menu {
+			position: absolute;
+			box-sizing: border-box;
+			min-height: 100%;
+			width: 300px;
+			padding: 30px 30px 80px 30px;
+			color: white;
+		}
+		.side-menu > div {
+			line-height: 40px;
+			margin-bottom: 5px;
+			padding: 0 20px;
+			cursor: pointer;
+			background-color: #24D4B5;
+		}
+		.side-menu ul {
+			display: none;
+			margin: 0;
+			padding: 0 0 20px 0px;
+			border-top: 1px solid white;
+			list-style: none;
+		}
+		.side-menu ul li { padding-left: 30px; }
+		.side-menu ul li:first-child { margin-top: 5px }
+		.side-menu ul li:hover { background-color: #5D6367; }
+		.side-menu > div .head { display: block; }
+		.side-menu > div:hover { background-color: #1D9FE8; }
+		.side-menu .head:after {
+			content: "";
+			position: absolute;
+			right: 30px;
+			width: 40px;
+			height: 40px;
+			background: url(expand.png) no-repeat 50% 50%;
+		}
+
+		.copyright {
+			position: fixed;
+			width: 300px;
+			bottom: 0;
+			padding: 15px 0;
+			text-align: center;
+			color: white;
+			background-color: #219FE8;
+		}
+
+		button {
+			border: 1px solid #aaa;
+			border-radius: 4px;
+			padding: 8px 12px;
+			outline: none;
+		}
+
+		.content {
+			margin-left: 300px;
+			padding: 20px;
+		}
+		.controls { overflow: hidden; }
+		.controls > div {
+			display: inline-block;
+			width: 14.28%;
+			float: left;
+			text-align: center;
+		}
+		.controls button {
+			width: 80%;
+			margin: 10px auto;
+		}
+		.controls button:focus {
+			background: #36E6C7;
+			box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+		}
+		.filter {
+			position: relative;
+			margin: 15px;
+			padding: 15px;
+			border: 1px solid #aaa;
+			border-radius: 4px;
+		}
+		.filter .head {
+			position: absolute;
+			left: 10px;
+			top: -15px;
+			padding: 0 10px;
+			background: white;
+		}
+		input[type="text"]
+		{
+			border-radius: 4px;
+			border: 1px solid #aaa;
+			line-height: 20px;
+			padding: 5px 10px;
+			width: 300px;
+		}
+
+		.wrapper {
+			font-size: 0;
+		}
+		.wrapper .item {
+			display: inline-block;
+			box-sizing: border-box;
+			width: 50%;
+			padding: 15px;
+			font-size: 16px;
+			vertical-align: top;
+		}
+
+		.group {
+			position: relative;
+			border-radius: 4px;
+			border: 1px solid #aaa;
+			font-size: 14px;
+			padding: 15px;
+		}
+		.group .head {
+			position: absolute;
+			left: 10px;
+			top: -15px;
+			background: white;
+			padding: 0 10px;
+			font-size: 16px;
+		}
+
+		.group table {
+			width: 100%;
+			font-size: 14px;
+			border-spacing: 1px;
+		}
+		.group table td {
+			padding: 5px;
+			text-align: center;
+		}
+		.group table td:nth-child(odd) {
+			background: #E2E2E2;
+			font-weight: bold;
+		}
+		.group table td:nth-child(even) { background: #F1F1F1; }
+
+		.attributes {
+			margin-top: 30px;
+			font-size: 0;
+		}
+		.attributes .btns {
+			display: inline-block;
+			width: 20%;
+			text-align: center;
+		}
+		.attributes .btns button { width: 80%; }
+		.attributes table { margin-top: 10px; }
+		.attributes table td:nth-child(odd) {
+			background: #F1F1F1;
+			font-weight: normal;
+		}
+		.attributes table th {
+			line-height: 30px;
+			background: #E2E2E2;
+		}
+
+		.statistic { margin-top: 10px; }
+		.statistic td:nth-child(odd) {
+			background: #F1F1F1;
+			font-weight: normal;
+		}
+		.statistic th {
+			line-height: 30px;
+			background: #E2E2E2;
+		}
+
+		.group.type {
+			margin-top: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="logo">ERP SYSTEM</div>
+		<div class="user-control">
+			<span>当前用户：测试</span>
+			<img src="setting.png" width="30px" height="30px">
+		</div>
+		<div class="company">商泰金鸿企业资源管理系统</div>
+	</div>
+	<div class="side-menu">
+		<div>首页</div>
+		<div>
+			<div class="head">生产作业管理</div>
+			<ul>
+				<li>生产信息管理</li>
+				<li>生产计划管理</li>
+				<li>产品研发</li>
+			</ul>
+		</div>
+		<div>
+			<div class="head">采购管理</div>
+			<ul>
+				<li>供应商信息管理</li>
+				<li>采购订单管理</li>
+				<li>原料仓储管理</li>
+			</ul>
+		</div>
+		<div>
+			<div class="head">销售管理</div>
+			<ul>
+				<li>订单管理</li>
+				<li>退货管理</li>
+			</ul>
+		</div>
+		<div>
+			<div class="head">仓储物流管理</div>
+			<ul>
+				<li>物料出入库管理</li>
+				<li>成品出入库管理</li>
+			</ul>
+		</div>
+		<div>
+			<div class="head">财务管理</div>
+			<ul>
+				<li>应收款管理</li>
+				<li>应付款管理</li>
+				<li>薪资管理</li>
+				<li>报销管理</li>
+				<li>总账管理</li>
+			</ul>
+		</div>
+		<div>系统设置</div>
+		<div>系统使用说明</div>
+	</div>
+	<div class="content">
+		<div class="controls">
+			<div><button>打开文件</button></div>
+			<div><button>打开URL</button></div>
+			<div><button>打开DB</button></div>
+			<div><button>生成</button></div>
+			<div><button>撤销</button></div>
+			<div><button>编辑</button></div>
+			<div><button>保存</button></div>
+		</div>
+		<div class="filter">
+			<div class="head">过滤</div>
+			<button>选择</button>
+			<input type="text" placeholder="请选择文件"></input>
+			<button>运用</button>
+		</div>
+		<div class="wrapper">
+			<div class="item">
+				<div>
+					<div class="group">
+						<div class="head">当前关系</div>
+						<table>
+							<tr>
+								<td>关系</td>
+								<td>仓库</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>实例</td>
+								<td>26</td>
+								<td>属性</td>
+								<td>11</td>
+							</tr>
+						</table>
+					</div>
+					<div class="group attributes">
+						<div class="head">属性</div>
+						<div class="btns"><button>全部</button></div>
+						<div class="btns"><button>全无</button></div>
+						<div class="btns"><button>反选</button></div>
+						<div class="btns"><button>生成</button></div>
+						<div class="btns"><button>模式</button></div>
+						<table>
+							<tr>
+								<th>编号</th>
+								<th></th>
+								<th>名称</th>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td><input type="checkbox"></input></td>
+								<td>单价(元)</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td><input type="checkbox"></input></td>
+								<td>平均库存量(件)</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td><input type="checkbox"></input></td>
+								<td>占用资金(元)</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td><input type="checkbox"></input></td>
+								<td>入库数量(件)</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td><input type="checkbox"></input></td>
+								<td>订货次数(次)</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td><input type="checkbox"></input></td>
+								<td>出库量(件)</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td><input type="checkbox"></input></td>
+								<td>市场供货(万件)</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td><input type="checkbox"></input></td>
+								<td>采购提前期(天)</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td><input type="checkbox"></input></td>
+								<td>采购费用(元)</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td><input type="checkbox"></input></td>
+								<td>缺货损失(万元/天)</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td><input type="checkbox"></input></td>
+								<td>库存模型类别</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div>
+					<div class="group">
+						<div class="head">选择的属性</div>
+						<table>
+							<tr>
+								<td>名称</td>
+								<td>单价（元）</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>损失</td>
+								<td></td>
+								<td>区别</td>
+								<td>19</td>
+							</tr>
+						</table>
+						<table class="statistic">
+							<tr>
+								<th>统计</th>
+								<th>值</th>
+							</tr>
+							<tr>
+								<td>最小值</td>
+								<td>17</td>
+							</tr>
+							<tr>
+								<td>最大值</td>
+								<td>590</td>
+							</tr>
+							<tr>
+								<td>平均</td>
+								<td>107</td>
+							</tr>
+							<tr>
+								<td>StdDev</td>
+								<td>115.234</td>
+							</tr>
+						</table>
+					</div>
+					<div class="group type">
+						<div class="head">模型库类别</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="copyright">商泰金鸿，版权所有</div>
+	<script>
+		$(".head").click(function() { $(this).siblings().slideToggle(); });
+	</script>
+</body>
+</html>

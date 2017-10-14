@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title>农圣沉湖</title>
+	<link rel="stylesheet" href="./css/common.css">
+	<script src="./js/jquery.min.js"></script>
+	<style>
+		.img {
+			background-position: center;
+			display: inline-block;
+			background-size: cover;
+		}
+
+		.img-wrapper {
+			position: relative;
+			height: 400px;
+		}
+		.img-wrapper .img {
+			position: absolute !important;
+			width: 100%;
+			height: 400px;
+			opacity: 0;
+			transition: opacity 2s;
+		}
+		.img-wrapper .active { opacity: 1; }
+		.img-wrapper .num1 { background-image: url(./images/img-slider-1.jpg); }
+		.img-wrapper .num2 { background-image: url(./images/img-slider-2.jpg); }
+		.img-wrapper .num3 { background-image: url(./images/img-slider-3.jpg); }
+		.img-wrapper .num4 { background-image: url(./images/img-slider-4.jpg); }
+		.img-wrapper .num5 { background-image: url(./images/img-slider-5.jpg); }
+
+		.index-wrapper {
+			position: relative;
+			margin-top: -42px;
+			padding: 10px 0;
+			text-align: center;
+		}
+		.index-wrapper span {
+			display: inline-block;
+			width: 18px;
+			height: 18px;
+			margin-right: 6px;
+			border-radius: 50%;
+			background: rgba(0, 0, 0, .4);
+			cursor: pointer;
+			transition: background .5s;
+		}
+		.index-wrapper span:hover,
+		.index-wrapper span.active { background: rgba(48, 175, 253, .8); }
+
+		section.num1 {
+			padding-top: 18px;
+			box-shadow: 0 0 8px rgba(0, 0, 0, .4);
+		}
+		section.num1 .img {
+			width: 400px;
+			height: 250px;
+			float: left;
+			margin-left: 30px;
+			margin-right: 30px;
+			background-image: url(./images/weixin.jpg);
+		}
+		section.num1 p {
+			min-height: 260px;
+			margin-top: 0;
+			padding-right: 30px;
+		}
+
+		section.num2 .column {
+			width: 50%;
+			box-sizing: border-box;
+			padding: 0 20px;
+		}
+		section.num2 h2 {
+			padding-bottom: 5px;
+			border-bottom: 2px dashed #ccc;
+		}
+		section.num2 ul {
+			margin-top: 0;
+			padding-left: 0;
+			list-style: none;
+			font-size: 15px;
+		}
+		section.num2 li {
+			overflow: hidden;
+			padding: 15px 0 10px 0;
+			border-bottom: 1px dashed #aaa;
+		}
+		section.num2 li a {
+			padding-left: 20px;
+			float: left;
+			cursor: pointer;
+			background: url(./images/arrow-icon.png) 5px 50% no-repeat;
+		}
+		section.num2 li .time {
+			float: right;
+			min-width: 110px;
+		}
+		section.num2 figure {
+			float: left;
+			margin: 0;
+			width: 50%;
+			padding: 0 10px;
+			box-sizing: border-box;
+		}
+		section.num2 .img {
+			width: 100%;
+			height: 120px;
+		}
+		section.num2 figcaption {
+			font-size: 12px;
+			text-align: center;
+			padding: 5px 0;
+		}
+		section.num2 .img.num1 { background-image: url(./images/index-8.jpg); }
+		section.num2 .img.num2 { background-image: url(./images/index-9.jpg); }
+		section.num2 .img.num3 { background-image: url(./images/index-10.jpg); }
+		section.num2 .img.num4 { background-image: url(./images/index-11.jpg); }
+		
+		section.num3 { padding: 0 30px 20px 30px; }
+		section.num3 .img {
+			width: 20%;
+			height: 120px;
+			float: left;
+		}
+		section.num3 .img.num1 { background-image: url(./images/index-12.jpg); }
+		section.num3 .img.num2 { background-image: url(./images/index-13.jpg); }
+		section.num3 .img.num3 { background-image: url(./images/index-14.jpg); }
+		section.num3 .img.num4 { background-image: url(./images/index-15.jpg); }
+		section.num3 .img.num5 { background-image: url(./images/index-16.jpg); }
+		section.num3 .img.num6 { background-image: url(./images/index-17.jpg); }
+		section.num3 .img.num7 { background-image: url(./images/index-18.jpg); }
+		section.num3 .img.num8 { background-image: url(./images/index-19.jpg); }
+		section.num3 .img.num9 { background-image: url(./images/index-20.jpg); }
+		section.num3 .img.num10 { background-image: url(./images/index-21.jpg); }
+
+		@media screen and (max-width: 768px) {
+			section.num1 .img {
+				width: 300px;
+				height: 175px;
+			}
+			section.num1 .img { margin-bottom: 10px; }
+			section.num1 p { padding-left: 30px; }
+			section.num2 .column { width: 100%; }
+			section.num2 .img { height: 100px; }
+			section.num3 .img {
+				width: 50%;
+				height: 100px;
+			}
+			.img-wrapper, .img-wrapper .img { height: 300px; }
+		}
+	</style>
+</head>
+<body>
+	<article>
+		<header>
+			<div class="logo">
+				<img src="./images/logo.png">
+				<h1>武汉农圣沉湖生态农庄</h1>
+				<p>武汉农圣沉湖生态农庄位于蔡甸区消泗乡，与国家级保护区沉湖湿地相邻，空气清新，环境优美，0污染！</p>
+			</div>
+			<nav>
+				<a class="active" href="index.html">首页</a>
+				<a href="nongsheng.html">走进农圣</a>
+				<a href="news.html">新闻动态</a>
+				<a href="cultivation.html">特色养殖</a>
+				<a href="entertainment.html">休闲娱乐</a>
+				<a href="vip-center.html">会员中心</a>
+				<a href="map-guiding.html">指引地图</a>
+				<a href="contact-us.html">联系我们</a>
+			</nav>
+			<div class="img-wrapper">
+				<div class="img num1 active"></div>
+				<div class="img num2"></div>
+				<div class="img num3"></div>
+				<div class="img num4"></div>
+				<div class="img num5"></div>
+			</div>
+			<div class="index-wrapper">
+				<span class="active"></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<script>
+				(function() {
+					showImage.current = 0;
+					function showImage(index) {
+						if(index != showImage.current) {
+							var currentImage = $($(".img-wrapper div")[showImage.current]);
+								currentImage.removeClass("active");
+							$($(".img-wrapper div")[index]).addClass("active");
+
+							var currentIndex = $($(".index-wrapper span")[showImage.current]);
+								currentIndex.removeClass("active");
+							$($(".index-wrapper span")[index]).addClass("active");
+
+							showImage.current = index;
+						}
+					}
+
+					var isSliding = true;
+					var slideEffect = setInterval(function() {
+						showImage((showImage.current + 1) % 5);
+					}, 3000);
+
+					var lastClick = new Date();
+					$(".index-wrapper span").click(function() {
+						showImage($(this).index());
+						clearInterval(slideEffect);
+						lastClick = new Date();
+						isSliding = false;
+					});
+
+					// 单击后暂停切换，等待4s，如果没有新的单击事件，则继续切换
+					setInterval(function() {
+						var currentTime = new Date();
+						if(currentTime.getTime() - lastClick.getTime() > 4000 & !isSliding) {
+							
+							showImage(showImage.current + 1);
+							slideEffect = setInterval(function() {
+								showImage((showImage.current + 1) % 5);
+							}, 3000);
+
+							isSliding = true;
+						}
+					}, 500);
+				})();
+			</script>
+		</header>
+		<section class="num1">
+			<div class="img"></div>
+			<p>武汉农圣沉湖位于蔡甸区消泗乡，与国家级保护区沉湖湿地相邻，空气清新，环境优美，0污染！农庄占地500亩，其中鱼塘200亩，拥有畜禽养殖、鱼类养殖、有机蔬果种植和农家乐四个事业部。农庄采用“畜禽粪便-沼气池（有机肥）-蔬果、农作物、鱼牧草”的循环再利用的现代立体生态种养生产方式，所有禽类均为自然放养。在生产养殖过程中均不使用化肥和农药，力求原始自然和绿色环保，让畜禽、蔬果、农作物和水产品在自然生态环境中按照自身原有的生长规律生长，使消费者真正品尝到舌尖上的健康美味。农庄常年为客户提供有机蔬菜瓜果、鱼类、珍珠鸡、贵妃鸡、土鸡、飞鸭、鹅及高品质禽蛋。</p>
+		</section>
+		<section class="num2">
+			<div class="column num1">
+				<h2><span class="num1">新闻动态</span><a href="news.html" class="num2">更多&gt&gt</a></h2>
+				<ul>
+					<li><a href="./news/2014-06-11-1.html">农圣沉湖新鲜蔬菜：谁知盘中餐，粒粒皆辛苦</a><span class="time">2014年6月11日</span></li>
+					<li><a href="./news/2014-06-08-1.html">农圣沉湖生态农庄的有机蔬菜正在采摘</a><span class="time">2014年6月8日</span></li>
+					<li><a href="./news/2014-06-08-2.html">湖北电视台垄上行栏目组到农庄录制节目</a><span class="time">2014年6月8日</span></li>
+					<li><a href="./news/2014-06-08-3.html">科雷傲车友俱乐部的车友光临弄圣沉湖农庄</a><span class="time">2014年6月8日</span></li>
+				</ul>
+			</div>
+			<div class="column num2">
+				<h2><span class="num1">服务介绍</span><a href="entertainment.html" class="num2">更多&gt&gt</a></h2>
+				<figure class="num1"><div class="img num1"></div><figcaption>原生态种植</figcaption></figure>
+				<figure class="num2"><div class="img num2"></div><figcaption>珍禽养殖</figcaption></figure>
+				<figure class="num3"><div class="img num3"></div><figcaption>农家乐</figcaption></figure>
+				<figure class="num4"><div class="img num4"></div><figcaption>大棚种植</figcaption></figure>
+			</div>
+		</section>
+		<section class="num3">
+			<h2><span class="num1">农圣风光</span><a href="photo-gallery.html" class="num2">更多&gt&gt</a></h2>
+			<div class="img num1"></div>
+			<div class="img num2"></div>
+			<div class="img num3"></div>
+			<div class="img num4"></div>
+			<div class="img num5"></div>
+			<div class="img num6"></div>
+			<div class="img num7"></div>
+			<div class="img num8"></div>
+			<div class="img num9"></div>
+			<div class="img num10"></div>
+		</section>
+		<footer>
+			<div class="links">
+				<a href="index.html">网站首页</a>
+				<a href="nongsheng.html">走进农圣</a>
+				<a href="news.html">新闻动态</a>
+				<a href="cultivation.html">特色养殖</a>
+				<a href="entertainment.html">休闲娱乐</a>
+				<a href="vip-center.html">会员中心</a>
+				<a href="map-guiding.html">指引地图</a>
+				<a href="contact-us.html">联系我们</a>
+			</div>
+			<div>
+				<span>地址：武汉市蔡甸区消泗乡</span>
+				<span>手机：13995556773</span>
+				<span>免费服务热线：400-968-2686</span>
+				<span>农圣沉湖原生态食材QQ群：296251895</span>
+			</div>
+			<div>Copyright 2014 武汉农圣沉湖生态农庄有限公司 All rights reserved.</div>
+		</footer>
+	</article>
+</body>
+</html>

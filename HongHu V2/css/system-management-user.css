@@ -1,0 +1,89 @@
+.content {
+	font-family: "微软雅黑";
+	font-weight: 300;
+	color: white;
+}
+button.add-item {
+	margin-left: 50px;
+	margin-top: 25px;
+	padding: 8px 15px;
+	border: none;
+	font-family: "微软雅黑";
+	font-weight: 300;
+	color: #ddd;	
+	font-size: 16px;
+	border-radius: 4px;
+	background: rgb(136,136,136);
+	cursor: pointer;
+}
+
+.list-wrapper { 
+	margin: 10px 50px 30px 50px;
+	min-width: 690px;
+}
+.list-title {
+	line-height: 70px;
+	margin-bottom: 8px;
+	font-size: 16px;
+	background: rgb(81,122,156);
+}
+.list-title .num1,
+.list-title .num2,
+.list-title .num3 { display: inline-block; }
+.list-title .num1 {
+	width: 40%;
+	margin-left: 50px;
+}
+.list-title .num2 { width: 40%; }
+
+.list-item {
+	line-height: 70px;
+	margin-bottom: 3px;
+	font-size: 14px;
+	background: rgb(81,122,156);
+}
+.list-item .username,
+.list-item .select,
+.list-item .operate { display: inline-block; }
+.list-item .username {
+	width: 40%;
+	margin-left: 50px;
+}
+.list-item .select { width: 40%; }
+.list-wrapper button {
+	border: none;
+	outline: none;
+	color: #eee;
+	margin-right: 10px;
+	padding: 4px 8px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.list-item button.save { background: #16C0A6; }
+.list-item button.delete { background: rgb(239, 70, 76); }
+.list-item .operate { margin-left: -30px; }
+
+.ui-widget-header {
+	border: none;
+	background: #5B7081;
+}
+.ui-button-text {
+	font-family: "微软雅黑";
+	font-size: 14px;
+	font-weight: 300;
+	color: white;
+	background: #aaa;
+}
+
+select {
+	font-size: 14px;
+	padding: 3px 5px;
+}
+
+form select {
+	display: inline-block;
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 14px !important;
+}

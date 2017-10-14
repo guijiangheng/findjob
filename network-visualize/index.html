@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Human Relationship Visualize</title>
+		<link rel="stylesheet" type="text/css" href="style.css" >
+		<script type="text/javascript" src="table.js"></script>
+		<script type="text/javascript" src="link.js"></script>
+		<script type="text/javascript" src="person.js"></script>
+		<script type="text/javascript" src="graph.js"></script>
+		<script type="text/javascript" src="network.js"></script>
+		<script type="text/javascript" src="mousemoniter.js"></script>
+		<script type="text/javascript">
+			var canvas, context, panel, table;
+			var startInput, destinationInput, searchButton, undoButton;
+
+			window.onload = function() {
+				panel = document.getElementById("panel");
+				canvas = document.getElementById("canvas");
+				context = canvas.getContext("2d");
+
+				startInput = document.getElementById("start");
+				destinationInput = document.getElementById("destination");
+				searchButton = document.getElementById("search");
+				undoButton = document.getElementById("undo");
+
+				initCanvasSize();
+				initApplication();
+				render();
+			}
+
+			function initCanvasSize() {
+				canvas.width = window.innerWidth - 303;
+				canvas.height = window.innerHeight - 53;
+
+				window.onresize = function() {
+					canvas.width = window.innerWidth - 303;
+					canvas.height = window.innerHeight - 53;
+				}
+			}
+
+			function initApplication() {
+				Network.generatePersons();
+				Network.generateLinks();
+				Graph.generateGraph(Network.persons, Network.links);
+				MouseMoniter.setSprites(Graph.persons);
+				MouseMoniter.listenToMouseEvent();
+				
+				searchButton.onclick = function() {
+					var start = parseInt(startInput.value);
+					var destination = parseInt(destinationInput.value);
+					
+					if(!isNaN(start) && !isNaN(destination)) {
+						Graph.showPath(start, destination);
+					} else {
+						alert("Invalid Input");
+					}
+				}
+
+				undoButton.onclick = function() {
+					if(Graph.pathFind) {
+						var len = Graph.pathFind.length;
+						for(var i = 0; i < len - 1; ++i) {
+							Graph.findLink(Graph.pathFind[i], Graph.pathFind[i + 1]).setState("offShow");
+						}
+					}
+				}
+			}
+
+			function render() {
+				requestAnimationFrame(render);
+				context.clearRect(0, 0, canvas.width, canvas.height);
+
+				Graph.draw();
+			}
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			<a href="#" class="nav">Setting</a>
+			<a href="#" class="nav">About</a>
+			<div class="searchform">
+				<input id="start" type="text" placeholder="start">
+				<input id="destination" type="text" placeholder="destination">
+				<button id="search">Search</button>
+				<button id="undo">Undo</button>
+			</div>
+		</div>
+		<div id="panel"></div>
+		<canvas id="canvas"></canvas>
+	</body>
+</html>

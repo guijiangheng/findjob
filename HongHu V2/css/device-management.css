@@ -1,0 +1,86 @@
+.content h3 {
+	margin: 0;
+	margin-bottom: 5px;
+	padding-left: 50px;
+	padding-top: 25px;
+	color: rgb(47,78,122);
+	font-weight: normal;
+	font-size: 20px;
+}
+
+.list-item {
+	position: relative;
+	line-height: 60px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 10px;
+	padding: 10px 0;
+	color: white;
+	background: rgb(81,122,156);
+}
+.list-item .item-name {
+	display: inline-block;
+	min-width: 120px;
+	padding-left: 30px;
+	padding-right: 20px;
+	font-size: 18px;
+}
+.list-item img {
+	width: 70px;
+	height: 70px;
+	margin-right: 15px;
+	vertical-align: middle;
+}
+.device-info {
+	line-height: 1.3em;
+	display: inline-block;
+	min-width: 160px;
+	vertical-align: middle;
+}
+.device-info .device-name {
+	margin-bottom: 10px;
+}
+
+/***********************CSS for Switch****************/
+.switch {
+	position: absolute;
+	right: 40px;
+	top: 30px;
+}
+.switch {
+	display: inline-block;
+	width: 70px;
+	height: 30px;
+	overflow: hidden;
+	border-radius: 30px;
+	background: rgb(36,184,184);
+	vertical-align: middle;
+	cursor: pointer;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, .2);
+	transition: .3s linear;
+}
+.switch .handle {
+	position: relative;
+	left: 2px;
+	top: 2px;
+	width: 26px;
+	height: 26px;
+	line-height: 30px;
+	border-radius: 50%;
+	background: #fcfcfc;
+	box-shadow: 0 0 3px rgba(0, 0, 0, .2),
+				0, 4px 20px rgba(0, 0, 0, .08),
+				-2px 4px 3px rgba(0, 0, 0, .1);
+	transition: .3s cubic-bezier(0.05, 0.79, 0.48, 1.23);
+}
+.switch .handle::after {
+	position: relative;
+	left: -38px;
+	color: white;
+	content: "ON";
+	font-size: 16px;
+}
+.switch:hover {
+	background: rgb(199,66,67);
+}
+.switch:hover .handle {	left: 42px; }

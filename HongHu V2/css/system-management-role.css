@@ -1,0 +1,67 @@
+.content {
+	font-family: "微软雅黑";
+	font-weight: 300;
+	color: white;
+}
+button.add-item {
+	margin-left: 50px;
+	margin-top: 25px;
+	padding: 8px 15px;
+	border: none;
+	font-family: "微软雅黑";
+	font-weight: 300;
+	color: #ddd;
+	font-size: 16px;
+	border-radius: 4px;
+	background: rgb(136,136,136);
+	cursor: pointer;
+}
+
+.list-wrapper { 
+	margin: 10px 50px 30px 50px;
+	min-width: 770px;
+}
+.list-title {
+	line-height: 70px;
+	margin-bottom: 8px;
+	font-size: 16px;
+	background: rgb(81,122,156);
+}
+.list-title .num1,
+.list-title .num2 { display: inline-block; }
+.list-title .num1 {
+	width: 80%;
+	margin-left: 50px;
+}
+.list-title .num2 {
+	width: 10%;
+	margin-left: 20px;
+}
+
+.list-item {
+	line-height: 70px;
+	margin-bottom: 3px;
+	font-size: 14px;
+	background: rgb(81,122,156);
+}
+.list-item .username,
+.list-item .operate { display: inline-block; }
+.list-item .username {
+	width: 80%;
+	margin-left: 50px;
+}
+.list-wrapper button {
+	border: none;
+	outline: none;
+	color: #eee;
+	margin-right: 10px;
+	padding: 4px 8px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.list-item button.save {
+	margin-left: 20px;
+	background: #16C0A6;
+}
+.list-item button.delete { background: rgb(239, 70, 76); }
+.list-item .operate { margin-left: -30px; }

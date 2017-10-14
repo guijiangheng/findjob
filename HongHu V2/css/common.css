@@ -1,0 +1,176 @@
+body {
+	position: absolute;
+	width: 100%;
+	min-width: 900px;
+	height: 100%;
+	margin: 0;
+	background: rgb(242,239,234) url(../images/background.jpg) repeat-y;
+	background-size: 260px 1px;
+	font-family: "微软雅黑";
+	font-weight: 300;
+}
+
+/****************CSS for Header***************************/
+.header {
+	position: relative;
+	padding-left: 15px;
+	height: 80px;
+	color: white;
+	z-index: 100;
+	background: rgb(106,105,105);
+}
+
+.header .logo {
+	width: 90px;
+	display: inline-block;
+	margin-left: -15px;
+	text-align: center;
+}
+.header .logo div {
+	font-family: "华文行楷";
+	font-size: 18px;
+}
+.header .logo img {
+	width: 70px;
+	height: 40px;
+	padding-top: 10px;
+}
+
+.header nav {
+	float: right;
+	overflow: hidden;
+	height: 80px;
+	margin-right: 15px;
+}
+.header nav a {
+	display: inline-block;
+	float: left;
+	height: 80px;
+}
+.header nav a:hover,
+.header nav a.active { background: rgb(26,53,89); }
+.header nav img {
+	width: 50px;
+	height: 50px;
+	padding-top: 15px;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+/****************CSS for Side Nav***************************/
+.side-nav {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 260px;
+	min-height: 100%;
+	padding-top: 140px;
+	padding-left: 15px;
+	padding-right: 15px;
+	z-index: 50;
+	box-sizing: border-box;
+}
+
+.copyright {
+	position: fixed;
+	bottom: 0;
+	width: 230px;
+	padding-top: 20px;
+	padding-bottom: 5px;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: white;
+	text-align: center;
+	background: rgb(47, 78, 122);
+}
+.copyright p { margin: 0; }
+
+/****************CSS for Content***************************/
+.content {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	width: 100%;
+	min-height: 100%;
+	padding-top: 80px;
+	padding-left: 260px;
+	box-sizing: border-box;
+	font-family: "微软雅黑";
+	font-weight: 300;
+}
+
+/****************CSS for Comapny Info***************************/
+.company-info {
+	font-size: 14px;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	padding: 10px;
+	color: rgb(122,106,87);
+}
+.company-info p {
+	line-height: 1.1em;
+	margin: 5px;
+}
+
+/****************CSS for Side Nav List***************************/
+.side-nav nav {
+	padding: 10px 20px 30px 20px;
+	background: rgb(100,118,155);
+}
+.menu-item {
+	margin: 2px 0;
+	padding: 2px 0;
+	line-height: 45px;
+	color: white;
+	cursor: pointer;
+	border-bottom: 1px solid rgba(240, 240, 240, .2);
+}
+.menu-item img.menu-icon {
+	width: 40px;
+	height: 40px;
+	margin-left: 20px;
+	vertical-align: middle;
+}
+.menu-item .expand-icon {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	background-image: url(../images/icon-expand.png);
+}
+.menu-item .expand-icon.expand { background-image: url(../images/icon-angle-up.png); }
+.menu-item > span {
+	display: inline-block;
+	min-width: 80px;
+	padding-left: 5px;
+	font-size: 16px;
+	vertical-align: middle;
+}
+.menu-item > span a {
+	color: white;
+	text-decoration: none;
+}
+
+.menu-group ul {
+	display: none;
+	margin: 0;
+	margin-bottom: 10px;
+	padding: 0;
+	background: rgb(74, 106, 157)
+}
+.menu-group ul > a {
+	display: block;
+	padding-left: 65px;
+	color: #ccc;
+	font-size: 14px;
+	line-height: 30px;
+	cursor: pointer;
+	text-decoration: none;
+}
+.menu-group ul > a:hover,
+.menu-group ul > a.active {
+	background: rgb(46,151,147);
+}

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-CH">
+<head>
+	<meta charset="utf-8">
+	<title>洪湖浪 - 设备控制</title>
+	<link rel="stylesheet" href="./css/common.css">
+	<link rel="stylesheet" href="./css/device-management.css">
+	<script src="./js/jquery-2.1.3.min.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="logo">
+			<img src="./images/logo.png">
+			<div>翼高天成</div>
+		</div>
+		<span>粮情测控系统</span>
+		<nav>
+			<a href="index.html"><img src="./images/home-icon.png"></a>
+			<a href="3d.html"><img src="./images/3d-icon.png"></a>
+			<a href="device-management.html" class="active"><img src="./images/control-icon.png"></a>
+			<a href="index.html"><img src="./images/alarm-icon.png"></a>
+			<a href="index.html"><img src="./images/monitor-icon.png"></a>
+			<a href="index.html"><img src="./images/statistic-icon.png"></a>
+			<a href="index.html"><img src="./images/config-icon.png"></a>
+		</nav>
+	</div>
+	<div class="side-nav">
+		<nav>
+			<div class="menu-item">
+				<img class="menu-icon" src="./images/home-icon.png">
+				<span><a href="index.html">系统首页</a></span>
+			</div>
+			<div class="menu-group">
+				<div class="menu-item">
+					<img class="menu-icon" src="./images/3d-icon.png">
+					<span>三维模拟</span>
+					<div class="expand-icon"></div>
+				</div>
+				<ul>
+					<a href="#">汊河一号仓</a>
+					<a href="#">汊河二号仓</a>
+					<a href="#">汊河三号仓</a>
+					<a href="#">汊河四号仓</a>
+					<a href="#">汊河五号仓</a>
+					<a href="#">汊河六号仓</a>
+					<a href="#">汊河七号仓</a>
+				</ul>
+			</div>
+			<div class="menu-group">
+				<div class="menu-item">
+					<img class="menu-icon" src="./images/control-icon.png">
+					<span>设备控制</span>
+					<div class="expand-icon"></div>
+				</div>
+				<ul>
+					<a href="#">汊河一号仓</a>
+					<a href="#">汊河二号仓</a>
+					<a href="#">汊河三号仓</a>
+					<a href="#">汊河四号仓</a>
+					<a href="#">汊河五号仓</a>
+					<a href="#">汊河六号仓</a>
+					<a href="#">汊河七号仓</a>				
+				</ul>
+			</div>
+			<div class="menu-group">
+				<div class="menu-item">
+					<img class="menu-icon" src="./images/alarm-icon.png">
+					<span>实时报警</span>
+					<div class="expand-icon"></div>
+				</div>
+				<ul>
+					<a href="#">汊河一号仓</a>
+					<a href="#">汊河二号仓</a>
+					<a href="#">汊河三号仓</a>
+					<a href="#">汊河四号仓</a>
+					<a href="#">汊河五号仓</a>
+					<a href="#">汊河六号仓</a>
+					<a href="#">汊河七号仓</a>
+				</ul>
+			</div>
+			<div class="menu-group">
+				<div class="menu-item">
+					<img class="menu-icon" src="./images/monitor-icon.png">
+					<span>远程视频</span>
+					<div class="expand-icon"></div>
+				</div>
+				<ul>
+					<a href="#">汊河一号仓</a>
+					<a href="#">汊河二号仓</a>
+					<a href="#">汊河三号仓</a>
+					<a href="#">汊河四号仓</a>
+					<a href="#">汊河五号仓</a>
+					<a href="#">汊河六号仓</a>
+					<a href="#">汊河七号仓</a>
+				</ul>
+			</div>
+			<div class="menu-group">
+				<div class="menu-item">
+					<img class="menu-icon" src="./images/statistic-icon.png">
+					<span>统计报表</span>
+					<div class="expand-icon"></div>
+				</div>
+				<ul>
+					<a href="#">历史数据</a>
+					<a href="#">温度报表</a>
+					<a href="#">趋势曲线</a>
+					<a href="#">历史报警</a>
+					<a href="#">报警报表</a>		
+				</ul>
+			</div>
+			<div class="menu-group">
+				<div class="menu-item">
+					<img class="menu-icon" src="./images/control-icon.png">
+					<span>系统管理</span>
+					<div class="expand-icon"></div>
+				</div>
+				<ul>
+					<a href="system-management-user.html">用户管理</a>
+					<a href="system-management-role.html">角色管理</a>
+					<a href="#">权限分配</a>
+					<a href="#">传感器配置</a>
+					<a href="#">报警门限配置</a>
+					<a href="#">通风设备配置</a>
+					<a href="#">日志管理</a>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div class="content">
+		<h3>汊河N号仓</h3>
+		<div class="list-item">
+			<span class="item-name">1号通风机</span>
+			<img src="./images/fengji.png">
+			<div class="device-info">
+				<div class="device-name">设备名称：<span class="value">通风机</span></div>
+				<div class="operate-type">操作模式：<span class="value">手动</span></div>
+			</div>
+			<div class="switch">
+				<div class="handle"></div>
+			</div>
+		</div>
+		<div class="list-item">
+			<span class="item-name">2号通风机</span>
+			<img src="./images/fengji.png">
+			<div class="device-info">
+				<div class="device-name">设备名称：<span class="value">通风机</span></div>
+				<div class="operate-type">操作模式：<span class="value">自动</span></div>
+			</div>
+			<div class="switch">
+				<div class="handle"></div>
+			</div>
+		</div>
+		<div class="list-item">
+			<span class="item-name">环流熏蒸机</span>
+			<img src="./images/fengji.png">
+			<div class="device-info">
+				<div class="device-name">设备名称：<span class="value">通风机</span></div>
+				<div class="operate-type">操作模式：<span class="value">手动</span></div>
+			</div>
+			<div class="switch">
+				<div class="handle"></div>
+			</div>
+		</div>
+		<div class="list-item">
+			<span class="item-name">N号其他设备</span>
+			<img src="./images/fengji.png">
+			<div class="device-info">
+				<div class="device-name">设备名称：<span class="value">其他设备</span></div>
+				<div class="operate-type">操作模式：<span class="value">手动</span></div>
+			</div>
+			<div class="switch">
+				<div class="handle"></div>
+			</div>
+		</div>		
+	</div>
+	<div class="company-info">
+		<p>技术支持：武汉翼高天成科技有限公司</p>
+		<p>官方网站：<a href="http://www.egaotech.com">http://www.egaotech.com</a></p>
+	</div>
+</body>
+<script>
+(function() {
+	$(".menu-item").click(function() {
+		if($(this).parent().hasClass("menu-group")) {
+			$(this).toggleClass("expand");
+			$(this).siblings().slideToggle(300);
+			$(this).find(".expand-icon").toggleClass("expand");
+		}
+	})
+})();
+</script>
+</html>
